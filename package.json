@@ -7,17 +7,26 @@
   "license": "MIT",
   "contributors": [
     {
-      "fullname": "John Doe",
-      "username": "username1",
-      "studentId": "12345678"
+      "fullname1": "ปองภพ สวาคฆพรรณ",
+      "username1": "Mei-Yoko",
+      "studentId1": "68010679",
+      "fullname2": "ฆฤณ มาสง",
+      "username2": "Zer00ne",
+      "studentId2": "68010126",
+      "fullname3": "เตชิต แสนคำ ",
+      "username3": "68010401-Techit",
+      "studentId3": "68010401",
+      "fullname4": "กมลภพ กันแก้ว",
+      "username4": "fmolp",
+      "studentId4": "68010015"
     }
   ],
   "project": {
     "model": {
-      "id": null,
-      "name": null
+      "id": 1,
+      "name": "Blog / Content Platform"
     },
-    "sumStudentId": null
+    "sumStudentId": 272041221
   },
   "scripts": {
     "build": "nest build",
@@ -37,7 +46,9 @@
     "@nestjs/common": "^10.0.0",
     "@nestjs/core": "^10.0.0",
     "@nestjs/platform-express": "^10.0.0",
-    "@nestjs/swagger": "^7.1.0",
+    "@nestjs/swagger": "^11.2.6",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.14.3",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.8.1"
   },
