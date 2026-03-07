@@ -1,4 +1,4 @@
-{
+  {
   "name": "nestjs-backend-api",
   "version": "1.0.0",
   "description": "NestJS Backend API Template for Class Project",
@@ -6,18 +6,33 @@
   "private": true,
   "license": "MIT",
   "contributors": [
-    {
-      "fullname": "John Doe",
-      "username": "username1",
-      "studentId": "12345678"
-    }
+  {
+  "name": "Saran Kongdam",
+  "username": "srnTone",
+  "studentId": "68011813"
+  },
+  {
+  "name": "Supphakorn Phaefuen",
+  "username": "bosswanttolearn",
+  "studentId": "68011820"
+  },
+  {
+  "name": "Supawit Siripan",
+  "username": "xSolitary",
+  "studentId": "68011827"
+  },
+  {
+  "name": "Potchara Mano",
+  "username": "potcharaeiei",
+  "studentId": "68010736"
+  }
   ],
   "project": {
-    "model": {
-      "id": null,
-      "name": null
-    },
-    "sumStudentId": null
+  "model": {
+  "id": "6",
+  "name": "Appointment Booking System"
+  },
+  "sumStudentId": 272046196
   },
   "scripts": {
     "build": "nest build",

@@ -1,0 +1,54 @@
+[
+  {
+    "id": "1772813821301",
+    "name": "นวดหลัง",
+    "description": "นวดผ่อนคลายหลัง",
+    "price": 400,
+    "duration": 60,
+    "category": "Wellness",
+    "providerName": "สราญ นวดแผนโบราณ",
+    "status": "AVAILABLE",
+    "isActive": true,
+    "createdAt": "2026-03-06T16:17:01.301Z",
+    "updatedAt": "2026-03-06T16:17:01.301Z"
+  },
+  {
+    "id": "1772813821302",
+    "name": "นวดเท้า",
+    "description": "นวดผ่อนคลายเท้า",
+    "price": 300,
+    "duration": 45,
+    "category": "Wellness",
+    "providerName": "สราญ นวดแผนโบราณ",
+    "status": "AVAILABLE",
+    "isActive": true,
+    "createdAt": "2026-03-06T16:17:01.301Z",
+    "updatedAt": "2026-03-06T16:17:01.301Z"
+  },
+  {
+    "id": "1772813821303",
+    "name": "นวดหน้า",
+    "description": "นวดผ่อนคลายหน้า",
+    "price": 500,
+    "duration": 90,
+    "category": "Wellness",
+    "providerName": "สราญ นวดแผนโบราณ",
+    "status": "AVAILABLE",
+    "isActive": true,
+    "createdAt": "2026-03-06T16:17:01.301Z",
+    "updatedAt": "2026-03-06T16:17:01.301Z"
+  },
+  {
+    "id": "1772813821304",
+    "name": "นวดตัว",
+    "description": "นวดผ่อนคลายตัว",
+    "price": 800,
+    "duration": 120,
+    "category": "Wellness",
+    "providerName": "สราญ นวดแผนโบราณ",
+    "status": "AVAILABLE",
+    "isActive": true,
+    "createdAt": "2026-03-06T16:17:01.301Z",
+    "updatedAt": "2026-03-06T16:17:01.301Z"
+  }
+]
