@@ -20,14 +20,17 @@ async function bootstrap(): Promise<void> {
 
   // Swagger/OpenAPI documentation
   const config = new DocumentBuilder()
-    .setTitle('NestJS Backend API')
-    .setDescription('API Documentation for NestJS Backend Project')
+    .setTitle('Project Management API')
+    .setDescription('API for managing projects and tasks')
     .setVersion('1.0')
-    .addTag('api')
+    .addTag('projects')
+    .addTag('tasks')
     .build();
+
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api', app, document);
-
+  
+  
   const port = 3000;
   await app.listen(port);
   console.log(`Application is running on: http://localhost:${port}`);
