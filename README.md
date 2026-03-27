@@ -1,243 +1,191 @@
-# NestJS Backend API — Project Template
+## Appointment Booking System API
+🚀 REST API สำหรับจัดการบริการและการจองนัดหมาย พัฒนาด้วย NestJS และ TypeScript สำหรับโปรเจค Model Set 6
 
-## 📌 Project Overview
+## Project Information
 
-โปรเจคนี้เป็น **Template สำหรับ Class Project** ในรายวิชาการพัฒนา Backend ด้วย NestJS Framework
+| รายละเอียด | ข้อมูล |
+|---|---|
+| Model Set | 6 — Appointment Booking System
+| Student ID Sum | 272046196 |
+| Calculation | 272046196 mod 10 = 6 |
 
-**Repository:** [https://github.com/42bangkok-classroom/oop-typescript-final-project-2026](https://github.com/42bangkok-classroom/oop-typescript-final-project-2026)
+## Team Members
 
-วัตถุประสงค์ของโปรเจคนี้คือให้นักศึกษาฝึก:
-
-* การออกแบบและพัฒนา REST API ตามมาตรฐาน
-* การใช้ TypeScript อย่างปลอดภัย (Type-safe)
-* การจัดการ Validation และ Error Handling
-* การจัดทำเอกสารระบบ (Documentation)
-
----
-
-## 👥 Team Structure
-
-* ทำงานเป็นกลุ่ม กลุ่มละ **3–4 คน**
-* ระยะเวลาการพัฒนา **ประมาณ 2 สัปดาห์**
-* สมาชิกทุกคนต้องมี commit ใน repository
-* รายชื่อสมาชิกต้องถูกระบุไว้ใน `package.json` (key `contributors`)
+| ชื่อ-นามสกุล | GitHub | รหัสนักศึกษา |
+|---|---|---|
+| Saran Kongdam | `srnTone` | 68011813 |
+| Supphakorn Phaefuen | `bosswanttolearn` | 68011820 | 
+| Supawit Siripan | `xSolitary` | 68011827 |
+| Potchara Mano | `potcharaeiei` | 68010736 |
 
 ---
 
-## 🛠 Technology Stack
+## Technology Stack
+| เทตโนโลยี | วัตถุประสงค์ |
+|---|---|
+| NestJS 10.x | Backend framework |
+| TypeScript | Type-safe development |
+| class-validator | Request validation |
+| class-transformer | Data transformation |
+| Swagger (OpenAPI) | API documentation |
+| ESLint | Linting and code quality |
+| JSON File Storage | File-based database |
 
-* **Framework:** NestJS
-* **Language:** TypeScript
-* **API Style:** REST API
-* **Database:** JSON-based (file-based หรือ in-memory)
-* **API Documentation:** Swagger (OpenAPI)
-* **Linting:** ESLint (TypeScript ESLint)
 
 ---
 
-## 📁 Project Structure
+## Installation and Running the Project
 
-```text
-.
-├── src/
-│   ├── main.ts
-│   ├── app.module.ts
-│   │
-│   ├── modules/
-│   │   └── example/
-│   │       └── dto/
-│   │
-│   └── common/
-│       ├── interfaces/
-│       └── utils/
-│
-├── docs/
-│   ├── api-specification.md
-│   ├── data-model.md
-│   └── uml-diagram.png
-├── subjects/
-│   ├── requirement.md
-│   ├── submission.md
-│   ├── evaluation.md
-│   └── models.md
-│
-├── package.json
-├── tsconfig.json
-└── README.md
+### 1. Clone the Repository
+```bash
+git clone https://github.com/srnTone/oop-typescript-final-project-2026.git
+cd oop-typescript-final-project-2026
+
 ```
-
-> 📌 หมายเหตุ: 
-> * โครงสร้างอาจมีการปรับเพิ่มเติมได้ตามความเหมาะสม แต่ต้องยังคงความเป็นระเบียบและอ่านง่าย
-> * **แนะนำให้แยก module ตาม models** (เช่น `modules/users/`, `modules/products/`) เพื่อให้โค้ดเป็นระบบและดูแลรักษาง่าย
-> * แต่ละ module ควรมี controller, service, และ dto ของตัวเอง
-
----
-
-## 🚀 Getting Started
-
-### 1. Install Dependencies
-
+### 2. Install Dependencies
 ```bash
 npm install
 ```
 
-### 2. Run Development Server
+### 3. Run the Project
 
-```bash
+Development mode:
+
+``` bash
 npm run start:dev
 ```
 
-### 3. API Documentation (Swagger)
+Production mode:
 
-เมื่อรันโปรเจคแล้ว สามารถเข้าดู Swagger ได้ที่:
+``` bash
+npm run build
+npm run start:prod
+```
+
+### 4. Access the Application
+
+Base URL:
+
+    http://localhost:3000/api
+
+Swagger Documentation:
+
+    http://localhost:3000/api/docs
+
+------------------------------------------------------------------------
+
+## Project Structure
 
 ```text
-http://localhost:3000/api
+.
+├── data/                             # โฟลเดอร์เก็บข้อมูลฐานข้อมูล (JSON Storage)
+│   ├── appointments.json             # ไฟล์เก็บข้อมูลการนัดหมายทั้งหมด
+│   └── services.json                 # ไฟล์เก็บข้อมูลบริการทั้งหมด
+├── src/
+│   ├── common/                       # โครงสร้างพื้นฐานที่ใช้งานร่วมกันทั้งระบบ
+│   │   ├── interfaces/
+│   │   │   └── api-response.interface.ts # กำหนดรูปแบบมาตรฐานการส่งข้อมูลกลับ (Response)
+│   │   └── utils/
+│   │       └── file.util.ts          # เครื่องมือสำหรับอ่านและเขียนไฟล์ JSON
+│   ├── modules/
+│   │   ├── appointment/              # โมดูลจัดการระบบการนัดหมาย
+│   │   │   ├── dto/                  # Data Transfer Objects สำหรับรับและตรวจสอบข้อมูล
+│   │   │   │   ├── create-appointment.dto.ts
+│   │   │   │   └── update-appointment.dto.ts
+│   │   │   ├── enums/                # ค่าคงที่สถานะต่างๆ ของการจอง
+│   │   │   │   └── appointment-status.enum.ts
+│   │   │   ├── interfaces/           # โครงสร้างข้อมูลภายในการนัดหมาย
+│   │   │   │   └── appointment.interface.ts
+│   │   │   ├── appointment.controller.ts # ส่วนรับ Request และกำหนด API Endpoints
+│   │   │   ├── appointment.module.ts     # ไฟล์รวบรวมการตั้งค่าโมดูล
+│   │   │   └── appointment.service.ts    # ส่วนประมวลผล Logic และการทำงานหลัก
+│   │   └── service/                  # โมดูลจัดการข้อมูลบริการที่เปิดให้จอง
+│   │       ├── dto/                  # DTO สำหรับจัดการข้อมูลบริการ
+│   │       │   ├── create-service.dto.ts
+│   │       │   └── update-service.dto.ts
+│   │       ├── enums/                # สถานะการให้บริการ
+│   │       │   └── service-status.enum.ts
+│   │       ├── interfaces/           # โครงสร้างข้อมูลบริการ
+│   │       │   └── service.interface.ts
+│   │       ├── service.controller.ts  # ส่วนรับ Request สำหรับจัดการบริการ
+│   │       ├── service.module.ts      # ไฟล์รวบรวมการตั้งค่าโมดูล
+│   │       └── service.service.ts     # ส่วนประมวลผลข้อมูลบริการ
+│   ├── app.module.ts                 # โมดูลหลักของแอปพลิเคชัน
+│   └── main.ts                       # ไฟล์จุดเริ่มต้นของระบบ (Entry Point)
+├── .eslintrc.js                      # การตั้งค่าสำหรับตรวจสอบคุณภาพโค้ด
+├── .gitignore                        # ไฟล์ระบุรายการที่ไม่ต้องการนำขึ้น GitHub
+├── package.json                      # ไฟล์จัดการ dependencies และคำสั่งการรันระบบ
+├── tsconfig.json                     # การตั้งค่าการ Compile ภาษา TypeScript
+└── README.md                         # เอกสารแนะนำและอธิบายรายละเอียดโปรเจค
 ```
 
 ---
+## Core Data Models
 
-## 🧩 Model Sets
+### Service Model (11 attributes)
 
-แต่ละกลุ่มต้องเลือก **Model Set 1 ชุด** จาก 10 ชุดที่มีให้
+| Attribute | Type | Description |
+|---|---|---|
+| `id` | string | รหัสบริการ |
+| `name` | string | ชื่อบริการ |
+| `description` | string | รายละเอียดเงื่อนไข |
+| `price` | number | ราคาค่าบริการ |
+| `duration` | number | ระยะเวลาที่ใข่ (นาที) |
+| `category` | decimal | หมวดหมู่บริการ |
+| `providerName` | string | ชื่อผู้ให้บริการ |
+| `status` | ServiceStatus | สถานะพร้อมให้บริการ |
+| `isActive` | boolean | การแสดงผลในระบบ |
+| `createdAt` | Date | วันที่สร้างข้อมูล |
+| `updatedAt` | Date | วันเวลสที่แก้ไขล่าสุด |
 
-**วิธีการเลือก Model Set:**
-1. นำ Student ID ของสมาชิกทุกคนในกลุ่มมารวมกัน (`sumStudentId`)
-2. นำผลรวม mod 10
-3. ค่าที่ได้ (0-9) จะเป็น Model Set ID ที่กลุ่มได้รับ
+### Apointment Model (11 Attributes)
 
-**ตัวอย่าง:** 
-- สมาชิก 3 คน มี Student ID: 64123456, 64123457, 64123458
-- `sumStudentId` = 64123456 + 64123457 + 64123458 = 192370371
-- 192370371 mod 10 = 1 → **Model Set ID: "1"** (Blog / Content Platform)
-
-> 📌 **เมื่อได้ Model Set แล้ว ห้ามเปลี่ยน** เว้นแต่ได้รับอนุญาตจากอาจารย์
-
-**หลังจากเลือก Model Set แล้ว ให้บันทึกใน `package.json`:**
-```json
-{
-  "project": {
-    "model": {
-      "id": "1",
-      "name": "Blog / Content Platform"
-    },
-    "sumStudentId": 192370371
-  }
-}
-```
-
-**รายละเอียด Model Sets ทั้งหมด:** → [`subjects/models.md`](subjects/models.md)
-
----
-
-## 📐 Project Requirements (Summary)
-
-### Data Model
-* ต้องเลือกใช้ **Model Set 1 ชุด** จาก 10 ชุดที่มีให้ (ดูรายละเอียดใน [`subjects/models.md`](subjects/models.md))
-* แต่ละ Model Set มี **Core Data Model 2 Models**
-* ต้องบันทึก Model Set ที่เลือกไว้ใน `package.json` (key `project`)
-* ใช้ TypeScript data type ให้ครบถ้วน
-* ต้องมีการใช้งาน **Enum อย่างน้อย 1 จุด**
-* ❌ **ห้ามใช้ `any` type ในทุกกรณี**
-
-### API Design
-* ทุก Model ต้องรองรับ **CRUD Operation ครบถ้วน**
-* ใช้ HTTP Method ให้ถูกต้องตามหลัก REST API:
-  * `GET /resources` - ดึงข้อมูลทั้งหมด
-  * `GET /resources/{id}` - ดึงข้อมูลตาม ID
-  * `POST /resources` - สร้างข้อมูลใหม่
-  * `PUT /resources/{id}` - อัปเดตข้อมูลทั้งหมด
-  * `PATCH /resources/{id}` - อัปเดตข้อมูลบางส่วน
-  * `DELETE /resources/{id}` - ลบข้อมูล
-* URL path ต้องตั้งชื่อให้สื่อความหมาย
-
-### Standard Response Format
-
-ทุก API ต้องใช้ Response Format แบบเดียวกัน:
-
-```typescript
-interface ApiResponse<T> {
-  success: boolean;
-  message: string;
-  data: T | null;
-}
-```
-
-### Validation & Error Handling
-* ทุก API ต้องมีการ **validate ข้อมูล**
-* ใช้ **HTTP Status Code** ที่เหมาะสม:
-  * `200` - OK (GET, PUT, PATCH สำเร็จ)
-  * `201` - Created (POST สำเร็จ)
-  * `400` - Bad Request (Validation error)
-  * `403` - Forbidden (ไม่มีสิทธิ์)
-  * `404` - Not Found (ไม่พบข้อมูล)
-  * `500` - Internal Server Error (Server error)
-* ⚠️ **ไม่ควรเกิด Error 500 จาก logic ที่สามารถป้องกันได้**
-* หากพบ Error 500 มากกว่า 5 จุด อาจมีผลต่อการให้คะแนน
+| Attribute | Type | Description |
+|---|---|---|
+| `id` | string | รหัสบริการ |
+| `serviceId` | string | ชื่อบริการ |
+| `customerName` | string | รชื่อผู้จอง |
+| `customerEmail` | string | อีเมลติดต่อ |
+| `customerPhone` | string | เบอร์โทรศัพท์ |
+| `appointmentDate` | Date | วันที่นัดหมาย |
+| `startTime` | string | เวลาเริ่มต้น |
+| `status` | AppointmentStatus | สถานะการจอง |
+| `notes` | string | หมายเหตุเพิ่มเติม |
+| `createdAt` | Date | วันที่สร้างข้อมูล |
+| `updatedAt` | Date | วันเวลสที่แก้ไขล่าสุด |
 
 ---
 
-## 📄 Documentation
+## API Endpoints
 
-เอกสารรายละเอียดของโจทย์และข้อกำหนดทั้งหมดถูกจัดเก็บไว้ในโฟลเดอร์ `subjects/`
+### Service Endpoints
 
-### เอกสารโจทย์ (Project Specification)
+| Method | Path | Description |
+|---|---|---|
+| `GET` | `/api/services` | ดึงข้อมูลบริการทั้งหมด |
+| `GET` | `/api/services/{id}` | ค้นหาบริการด้วย ID |
+| `POST` | `/api/services` | สร้างบริการใหม่ |
+| `PUT` | `/api/services/{id}` | อัปเดตข้อมูลบริการท้ังหมด |
+| `PATCH` | `/api/services/{id}` | แก้ไขข้อมูลบริการบางส่วน |
+| `DELETE` | `/api/services/{id}` | ลบบริการออกจากระบบ |
 
-* 📘 **Project Requirement** — ขอบเขตและข้อกำหนดของโปรเจค
-  → [`subjects/requirement.md`](subjects/requirement.md)
-* 🧩 **Model Sets** — รายละเอียด Model Sets ทั้ง 10 ชุด
-  → [`subjects/models.md`](subjects/models.md)
-* 📦 **Submission Guideline** — รูปแบบและขั้นตอนการส่งงาน
-  → [`subjects/submission.md`](subjects/submission.md)
-* 🧮 **Evaluation Criteria** — เกณฑ์การให้คะแนนและการประเมินผล
-  → [`subjects/evaluation.md`](subjects/evaluation.md)
+### Appointment Endpoints
 
-### เอกสารทางเทคนิค (ต้องจัดทำ)
-
-* 🔌 **API Specification (Swagger)** — เอกสาร API ทุก Endpoint
-* 🧱 **Data Model Documentation** — เอกสารอธิบาย Data Model
-* 📊 **UML Diagram** — แผนภาพ UML ของ Data Model
-
----
-
-## 👥 Team & Contributors
-
-รายชื่อสมาชิกในกลุ่มต้องถูกระบุไว้ใน key `contributors` ภายในไฟล์ `package.json` โดยมีรูปแบบดังนี้:
-
-```json
-"contributors": [
-  {
-    "fullname": "ชื่อ-นามสกุล",
-    "username": "github-username",
-    "studentId": "รหัสนักศึกษา"
-  }
-]
-```
+| Method | Path | Description |
+|---|---|---|
+| `GET` | `/api/services` | ดึงข้อมูลการนัดหมายทั้งหมด |
+| `GET` | `/api/services/{id}` | ค้นหาการนัดหมายด้วย ID |
+| `POST` | `/api/services` | บันทึกการนัดหมายใหม่ |
+| `PUT` | `/api/services/{id}` | อัปเดตข้อมูลนัดหมายท้ังหมด |
+| `PATCH` | `/api/services/{id}` | แก้ไขข้อมูลนัดหมายบางส่วน |
+| `DELETE` | `/api/services/{id}` | ลบหรือยกเลิกการนัดหมาย |
 
 ---
 
-## 🤖 AI Usage Policy
+## Documentation Links
 
-* อนุญาตให้ใช้ AI (เช่น ChatGPT) ช่วยในการพัฒนาโปรเจค
-* นักศึกษาต้องสามารถอธิบายโค้ดและแนวคิดของระบบได้ด้วยตนเอง
-* หากไม่สามารถอธิบายได้ อาจมีผลต่อการประเมินคะแนน
-
----
-
-## ✅ Submission
-
-* ส่งงานเป็น **GitHub Repository URL** ในนามของ **Team Lead**
-* Repository ต้องสามารถเข้าถึงได้
+* [API Specification](docs/api-specification.md)
+* [Data Model Documentation](docs/Data_Model_Documentation.md)
+* [UML Diagram](docs/UML_Diagram.md)
 
 ---
-
-## 📝 Important Notes
-
-* โค้ดต้องอ่านง่าย เป็นระบบ และดูแลรักษาได้
-* ทุก request และ response ต้องกำหนด interface แบบ narrow type
-* ใช้ TypeScript strict mode (`strict: true` ใน tsconfig.json)
-* ESLint จะตรวจสอบและป้องกันการใช้ `any` type อัตโนมัติ
-
----
-
-📌 *This repository is intended for educational purposes only.*
